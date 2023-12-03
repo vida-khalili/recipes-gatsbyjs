@@ -15,6 +15,10 @@ const Section = styled.section`
     border-radius: 8px;
     max-width: 700px;
   }
+  .contact-image {
+    border-radius: 8px;
+    max-width: 700px;
+  }
 `;
 
 export default PageContentSection;
