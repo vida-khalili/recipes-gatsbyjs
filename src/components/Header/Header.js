@@ -2,6 +2,8 @@ import { Link } from "gatsby";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
+import Logo from "../../assets/images/logo.svg";
+import Leaf from "../../assets/images/leaf.svg";
 
 const linksToPaths = [
   { name: "home", path: "/" },
@@ -11,13 +13,35 @@ const linksToPaths = [
 ];
 
 const StyledNav = styled.nav`
-  padding: 8px 32px;
+  padding: 0 32px;
   height: 80px;
-  display: flex;
+  gap: 32px;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr;
+  justify-items: center;
   align-items: center;
+  .logo {
+    margin-right: auto;
+    width: 100px;
+  }
+  .decoration-leaf {
+    position: absolute;
+    top: -50px;
+    width: 200px;
+    left: 200px;
+    @media (max-width: 1400px) {
+      width: 200px;
+      left: 150px;
+    }
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
 
   @media (max-width: 768px) {
-    justify-content: space-between;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    gap: 16px;
+    justify-items: flex-end;
     min-height: 60px;
     height: auto;
     padding: 8px 0;
@@ -28,9 +52,9 @@ const Ul = styled.ul`
   list-style: none;
   display: flex;
   flex: 1;
-  gap: 24px;
-  font-weight: 700;
-  letter-spacing: 2px;
+  gap: 32px;
+  font-weight: 600;
+  letter-spacing: 4px;
   font-family: "Antonio", sans-serif;
   justify-content: center;
   align-items: center;
@@ -38,33 +62,38 @@ const Ul = styled.ul`
   font-size: 18px;
   text-transform: capitalize;
   @media (max-width: 768px) {
-    display: ${(props) => (props.display ? "flex" : "none")};
+    display: ${(props) => (props.display === "true" ? "flex" : "none")};
     font-size: 14px;
     flex-direction: column;
+    gap: 0;
     position: absolute;
     top: 60px;
-    width: 100%;
     padding: 0;
     background-color: #f9f7e8;
+    box-shadow: 0px 0px 5px 1px #80808073;
+    border-radius: 16px;
+    padding: 8px;
+    width: 320px;
     & li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
       text-align: center;
       border-bottom: 2px solid #37724f5c;
-      padding: 8px;
+      padding: 16px;
+    }
+    & li:last-child {
+      border: none;
     }
   }
 
   & li a.active {
     color: #37724f;
   }
-
-  & li:last-child {
-    display: flex;
-    justify-content: flex-end;
-  }
 `;
 const Form = styled.form`
-  max-width: 320px;
+  width: 100%;
   @media (max-width: 768px) {
     margin: 0 auto;
   }
@@ -72,11 +101,13 @@ const Form = styled.form`
 
 const Input = styled.input`
   width: 100%;
-  padding: 8px;
+  padding: 8px 16px;
   background-color: transparent;
+  border-radius: 16px;
 `;
 
 const Button = styled.button`
+  width: ${(props) => props.width || "100%"};
   padding: 8px;
   align-items: center;
   justify-content: center;
@@ -95,28 +126,33 @@ const Header = () => {
 
   return (
     <StyledNav>
-      <div>Logo</div>
+      <div className="logo">
+        <img src={Logo} alt="logo" />
+      </div>
+      <div className="decoration-leaf">
+        <img src={Leaf} alt="decoration leaf" />
+      </div>
+
+      <Ul display={show.toString()}>
+        {linksToPaths.map((path, index) => (
+          <li key={index}>
+            <Link to={path.path} activeClassName="active">
+              {path.name}
+            </Link>
+          </li>
+        ))}
+      </Ul>
+      <Form>
+        <Input type="text" placeholder="Search..." autoComplete="off" />
+      </Form>
       <Button
+        width={"50px"}
         onClick={() => {
           setShow(!show);
         }}
       >
         <GiHamburgerMenu color="white" />
       </Button>
-      <Ul display={show}>
-        {linksToPaths.map((path, index) => (
-          <li>
-            <Link to={path.path} activeClassName="active">
-              {path.name}
-            </Link>
-          </li>
-        ))}
-        <li>
-          <Form>
-            <Input type="text" placeholder="" />
-          </Form>
-        </li>
-      </Ul>
     </StyledNav>
   );
 };

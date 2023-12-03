@@ -256,6 +256,9 @@ legend {
   white-space: normal; /* 1 */
 }
 
+ul {
+  padding: 0;
+}
 /**
  * Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */

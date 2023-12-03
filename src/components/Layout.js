@@ -14,6 +14,7 @@ const StyledDiv = styled.div`
 `;
 
 const StyledMain = styled.main`
+  display: grid;
   flex: 1;
 `;
 const Layout = ({ children }) => {
