@@ -8,7 +8,7 @@ import Paragraph from "../Typography/Paragraph";
 
 const ContactContent = () => {
   return (
-    <PageContentWrapper reverse="true">
+    <PageContentWrapper $reverse="true">
       <PageContentSection>
         <H1 fontSize="48px">Contact Me</H1>
         <Paragraph>
@@ -19,6 +19,7 @@ const ContactContent = () => {
           src="../../assets/images/contact.jpg"
           alt="woman cooking"
           className="contact-image"
+          placeholder="blurred"
         />
       </PageContentSection>
       <PageContentSection>

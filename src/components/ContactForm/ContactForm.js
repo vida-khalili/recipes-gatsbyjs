@@ -44,21 +44,30 @@ const InputWrapper = styled.div`
 const Form = styled.form`
   border-radius: 16px;
   background-color: #92a63d;
-  padding: 32px;
+  padding: 30px 24px;
   display: grid;
   gap: 16px;
+  @media screen and (max-width: 400px) {
+    padding: 30px 20px;
+  }
 `;
 const Input = styled.input`
   border-radius: 8px;
   border: none;
   width: 300px;
   padding: 8px 16px;
+  @media screen and (max-width: 400px) {
+    width: 250px;
+  }
 `;
 const Textarea = styled.textarea`
   width: 300px;
   padding: 8px 16px;
   border-radius: 8px;
   border: none;
+  @media screen and (max-width: 400px) {
+    width: 250px;
+  }
 `;
 const Label = styled.label`
   font-weight: 700;

@@ -34,6 +34,7 @@ const AboutContent = () => {
           src="../../assets/images/woman-chef.jpg"
           alt="woman cooking"
           className="about-image"
+          placeholder="blurred"
         />
       </PageContentSection>
     </PageContentWrapper>

@@ -7,13 +7,13 @@ const StyledParagraph = styled.p`
   line-height: 1.5;
   text-align: justify;
   color: ${(props) => props.color || "inherit"};
-  max-width: ${(props) => props.maxWidth || "unset"};
+  max-width: ${(props) => props.$maxwidth || "unset"};
   margin: 0;
 `;
 
-const Paragraph = ({ children, color = null, maxWidth = null }) => {
+const Paragraph = ({ children, color = null, maxwidth = null }) => {
   return (
-    <StyledParagraph color={color} maxWidth={maxWidth}>
+    <StyledParagraph color={color} $maxwidth={maxwidth}>
       {children}
     </StyledParagraph>
   );

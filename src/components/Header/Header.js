@@ -2,8 +2,8 @@ import { Link } from "gatsby";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
-import Logo from "../../assets/images/logo.svg";
-import Leaf from "../../assets/images/leaf.svg";
+
+import { StaticImage } from "gatsby-plugin-image";
 
 const linksToPaths = [
   { name: "home", path: "/" },
@@ -45,6 +45,9 @@ const StyledNav = styled.nav`
     min-height: 60px;
     height: auto;
     padding: 8px 0;
+    .logo {
+      width: 80px;
+    }
   }
 `;
 
@@ -126,12 +129,16 @@ const Header = () => {
 
   return (
     <StyledNav>
-      <div className="logo">
-        <img src={Logo} alt="logo" />
-      </div>
-      <div className="decoration-leaf">
-        <img src={Leaf} alt="decoration leaf" />
-      </div>
+      <StaticImage
+        src="../../assets/images/logo.svg"
+        alt="logo"
+        className="logo"
+      />
+      <StaticImage
+        src="../../assets/images/leaf.svg"
+        alt="decoration leaf"
+        className="decoration-leaf"
+      />
 
       <Ul display={show.toString()}>
         {linksToPaths.map((path, index) => (

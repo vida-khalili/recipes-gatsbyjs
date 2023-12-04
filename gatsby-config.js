@@ -8,6 +8,17 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  siteMetadata: {
+    title: "Healthy Food",
+    description: "Healthy recipes site",
+    author: "Vida Khalili",
+    person: { name: "vida", age: "31" },
+    simpleData: ["item 1", "item2"],
+    complexData: [
+      { name: "vida", age: "31" },
+      { name: "mohammad", age: "42" },
+    ],
+  },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
@@ -19,6 +30,15 @@ module.exports = {
         google: {
           families: ["Antonio", "Montserrat"],
         },
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        // The unique name for each instance
+        name: `images`,
+        // Path to the directory
+        path: `${__dirname}/src/assets/images`,
       },
     },
   ],
