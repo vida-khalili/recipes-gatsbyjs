@@ -1,24 +1,52 @@
+import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 
-const Recipe = ({ recipe = {} }) => {
+const Recipe = ({ recipe = {}, featured = "false" }) => {
   const { title, image, cookTime, prepTime } = recipe;
   const pathToImage = getImage(image);
   return (
-    <RecipeCard>
-      <GatsbyImage alt={title} image={pathToImage} className="recipe-image" />
-      <DetailWrapper>
-        <Title>{title}</Title>
-        <TimeWrapper>
-          prep: {prepTime}min | cook: {cookTime}min
-        </TimeWrapper>
-      </DetailWrapper>
+    <RecipeCard className={featured === "true" ? "featured" : ""}>
+      <Link to={"/recipes"}>
+        <GatsbyImage alt={title} image={pathToImage} className="recipe-image" />
+        <DetailWrapper>
+          <Title>{title}</Title>
+          <TimeWrapper>
+            prep: {prepTime}min | cook: {cookTime}min
+          </TimeWrapper>
+        </DetailWrapper>
+      </Link>
     </RecipeCard>
   );
 };
 
 const RecipeCard = styled.div`
+  &.featured {
+    background-color: white;
+    box-shadow: 0px 0px 4px 6px #edebde;
+    margin-right: 32px;
+    position: relative;
+    padding: 16px;
+    .recipe-image {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      top: -30px;
+      right: -50px;
+      border-radius: 100px;
+      @media screen and (max-width: 700px) {
+        width: 90px;
+        height: 90px;
+        border-radius: 90px;
+        top: -20px;
+        right: -40px;
+      }
+    }
+    @media screen and (max-width: 700px) {
+      width: 100%;
+    }
+  }
   display: grid;
   width: 280px;
   border-radius: 8px;
