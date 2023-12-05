@@ -163,6 +163,7 @@ sup {
 
 img {
   border-style: none;
+  z-index: 0;
 }
 
 /* Forms
@@ -373,3 +374,7 @@ template {
 #gatsby-focus-wrapper {
   height: 100%;
 }
+
+/* p {
+  margin: 0;
+} */

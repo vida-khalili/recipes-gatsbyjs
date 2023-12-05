@@ -31,6 +31,12 @@ const HomeContent = () => {
           placeholder="blurred"
         />
       </PageContentSection>
+      <StaticImage
+        src="../../assets/images/leaf.svg"
+        alt="image for hero"
+        placeholder="blurred"
+        className="home-decoration-leaf"
+      />
     </PageContentWrapper>
   );
 };

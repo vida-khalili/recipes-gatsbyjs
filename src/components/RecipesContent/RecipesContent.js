@@ -1,35 +1,36 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
 import PageContentWrapper from "../PageContentWrapper/PageContentWrapper";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import PageContentSection from "../PageContentWrapper/PageContentSection";
+import RecipesList from "./RecipesList/RecipesList";
+import TagsList from "./TagsList/TagsList";
+import { graphql, useStaticQuery } from "gatsby";
 
 const query = graphql`
   query {
-    allFile(filter: { relativeDirectory: { eq: "recipes" } }) {
+    allContentfulRecipe {
       nodes {
-        childImageSharp {
-          gatsbyImageData(
-            height: 200
-            layout: FIXED
-            width: 200
-            placeholder: BLURRED
-          )
+        id
+        title
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
         }
+        cookTime
+        prepTime
       }
     }
   }
 `;
-
 const RecipesContent = () => {
   const data = useStaticQuery(query);
-  const nodes = data.allFile.nodes;
-
+  const recipes = data.allContentfulRecipe.nodes;
   return (
-    <PageContentWrapper>
-      {nodes.map((image, index) => {
-        const imageData = getImage(image);
-        return <GatsbyImage image={imageData} alt="recipe pic" />;
-      })}
+    <PageContentWrapper template="tags">
+      <PageContentSection>
+        <TagsList recipes={recipes} />
+      </PageContentSection>
+      <PageContentSection>
+        <RecipesList recipes={recipes} />
+      </PageContentSection>
     </PageContentWrapper>
   );
 };

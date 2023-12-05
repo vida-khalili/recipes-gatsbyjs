@@ -8,7 +8,7 @@ import Paragraph from "../Typography/Paragraph";
 
 const ContactContent = () => {
   return (
-    <PageContentWrapper $reverse="true">
+    <PageContentWrapper template="reverse">
       <PageContentSection>
         <H1 fontSize="48px">Contact Me</H1>
         <Paragraph>

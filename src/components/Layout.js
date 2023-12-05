@@ -11,6 +11,7 @@ const StyledDiv = styled.div`
   min-height: 100vh;
   background-color: #f9f7e8;
   padding: 16px;
+  overflow: hidden;
 `;
 
 const StyledMain = styled.main`

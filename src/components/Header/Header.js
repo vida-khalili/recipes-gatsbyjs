@@ -65,6 +65,7 @@ const Ul = styled.ul`
   font-size: 18px;
   text-transform: capitalize;
   @media (max-width: 768px) {
+    z-index: 10;
     display: ${(props) => (props.display === "true" ? "flex" : "none")};
     font-size: 14px;
     flex-direction: column;
