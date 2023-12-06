@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../../../components/Layout";
+import Layout from "../../../components/Layout/Layout";
 import TagsList from "../../../components/RecipesContent/TagsList/TagsList";
 import PageContentWrapper from "../../../components/PageContentWrapper/PageContentWrapper";
 import PageContentSection from "../../../components/PageContentWrapper/PageContentSection";

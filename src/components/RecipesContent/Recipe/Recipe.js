@@ -1,14 +1,16 @@
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
+import slugify from "slugify";
 import styled from "styled-components";
 
 const Recipe = ({ recipe = {}, featured = "false" }) => {
   const { title, image, cookTime, prepTime } = recipe;
   const pathToImage = getImage(image);
+  const slug = slugify(title, { lower: true });
   return (
     <RecipeCard className={featured === "true" ? "featured" : ""}>
-      <Link to={"/recipes"}>
+      <Link to={`/recipes/${slug}`}>
         <GatsbyImage alt={title} image={pathToImage} className="recipe-image" />
         <DetailWrapper>
           <Title>{title}</Title>

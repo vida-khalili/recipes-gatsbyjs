@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/normalize.css";
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
+import "../../styles/normalize.css";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
