@@ -8,7 +8,8 @@ const PageContentWrapper = ({ children, template = "" }) => {
 const Wrapper = styled.section`
   position: relative;
   display: grid;
-  align-items: center;
+  align-items: ${(props) =>
+    props.$template === "tags" ? "flex-start" : "center"};
   justify-content: center;
   justify-items: center;
   grid-template-columns: ${(props) =>
@@ -19,7 +20,7 @@ const Wrapper = styled.section`
       : "0.6fr 1fr"};
   gap: 32px;
   padding: ${(props) =>
-    props.$template === "tags" ? "80px 30px 0 30px" : "0 30px"};
+    props.$template === "tags" ? "75px 30px 0 30px" : "0 30px"};
   .home-decoration-leaf {
     position: absolute;
     bottom: -140px;

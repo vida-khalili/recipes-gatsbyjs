@@ -3,7 +3,7 @@ import PageContentWrapper from "../PageContentWrapper/PageContentWrapper";
 import PageContentSection from "../PageContentWrapper/PageContentSection";
 import RecipesList from "./RecipesList/RecipesList";
 import TagsList from "./TagsList/TagsList";
-import { graphql, useStaticQuery } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 
 const query = graphql`
   query {
@@ -16,6 +16,9 @@ const query = graphql`
         }
         cookTime
         prepTime
+        content {
+          tags
+        }
       }
     }
   }
@@ -26,6 +29,9 @@ const RecipesContent = () => {
   return (
     <PageContentWrapper template="tags">
       <PageContentSection>
+        <Link className="tags-list-title" to={"/recipes/tags"}>
+          tags
+        </Link>
         <TagsList recipes={recipes} />
       </PageContentSection>
       <PageContentSection>
