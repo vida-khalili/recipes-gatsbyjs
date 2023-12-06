@@ -6,10 +6,15 @@ const PageContentWrapper = ({ children, template = "" }) => {
 };
 
 const Wrapper = styled.section`
+  margin-top: 40px;
   position: relative;
   display: grid;
   align-items: ${(props) =>
-    props.$template === "tags" ? "flex-start" : "center"};
+    props.$template === "tags"
+      ? "flex-start"
+      : props.$template === "baseline"
+      ? "flex-start"
+      : "center"};
   justify-content: center;
   justify-items: center;
   grid-template-columns: ${(props) =>
@@ -43,6 +48,7 @@ const Wrapper = styled.section`
     }
   }
   @media screen and (max-width: 900px) {
+    margin-top: 0;
     grid-template-columns: unset;
     padding: 24px 16px 16px 16px;
   }

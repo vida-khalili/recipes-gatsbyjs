@@ -6,6 +6,7 @@ const PageContentSection = ({ children }) => {
 };
 
 const Section = styled.section`
+  width: 100%;
   display: grid;
   gap: 12px;
   align-items: center;
@@ -26,7 +27,7 @@ const Section = styled.section`
     font-weight: 700;
     margin-bottom: 16px;
     text-transform: capitalize;
-    font-family: "Antonio";
+    font-family: "Antonio", sans-serif;
   }
   .tags-image {
     border-radius: 8px;
@@ -39,6 +40,9 @@ const Section = styled.section`
         transform: rotate(180deg);
       }
     }
+  }
+  .single-recipe-image {
+    border-radius: 8px;
   }
 `;
 

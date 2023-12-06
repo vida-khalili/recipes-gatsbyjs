@@ -88,7 +88,7 @@ const TimeWrapper = styled.p`
   opacity: 0.8;
   font-size: 14px;
   @media screen and (max-width: 500px) {
-    font-size: 12px;
+    font-size: 11px;
   }
 `;
 export default Recipe;

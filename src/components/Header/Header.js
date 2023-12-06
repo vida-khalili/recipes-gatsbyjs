@@ -13,6 +13,8 @@ const linksToPaths = [
 ];
 
 const StyledNav = styled.nav`
+  position: relative;
+  z-index: 10;
   padding: 0 32px;
   height: 80px;
   gap: 32px;

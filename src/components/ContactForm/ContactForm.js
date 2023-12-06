@@ -82,7 +82,7 @@ const SubmitButton = styled.button`
   letter-spacing: 2px;
   cursor: pointer;
   padding: 8px;
-  font-family: "Antonio";
+  font-family: "Antonio", sans-serif;
   font-weight: 600;
   transition: all 200ms ease-in-out;
   &:hover {
