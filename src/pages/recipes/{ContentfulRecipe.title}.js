@@ -9,6 +9,7 @@ import Paragraph from "../../components/Typography/Paragraph";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BsClockHistory, BsClockFill, BsPeopleFill } from "react-icons/bs";
+import slugify from "slugify";
 
 const RecipeTemplate = ({ data }) => {
   console.log(data);
@@ -49,9 +50,11 @@ const RecipeTemplate = ({ data }) => {
           <Tags>
             tags:
             {tags.map((tag, index) => {
+              const slug = slugify(tag, { lower: true });
+
               return (
                 <Tag key={index}>
-                  <Link to={"/"}>{tag}</Link>
+                  <Link to={`/tags/${slug}`}>{tag}</Link>
                 </Tag>
               );
             })}

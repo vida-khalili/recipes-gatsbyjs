@@ -2,12 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const ContactForm = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert("ok!");
-  };
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form action="https://formspree.io/f/xrgwnpkw" method="POST">
       <InputWrapper>
         <Label htmlFor="name">name</Label>
         <Input type="text" name="name" placeholder="name" autoComplete="off" />

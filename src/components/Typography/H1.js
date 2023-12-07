@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledH1 = styled.h1`
-  font-size: ${(props) => props.fontSize || "inherit"};
+  font-size: ${(props) => props.fontSize || "48px"};
   font-family: "Antonio", sans-serif;
   text-transform: uppercase;
   font-weight: 900;

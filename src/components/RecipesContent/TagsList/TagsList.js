@@ -1,8 +1,9 @@
 import React from "react";
 import setupTags from "../../../utils/setupTags";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import styled from "styled-components";
 import Paragraph from "../../Typography/Paragraph";
+import slugify from "slugify";
 const query = graphql`
   query {
     allContentfulRecipe {
@@ -23,9 +24,13 @@ const TagsList = ({ template = "" }) => {
     <TagsWrapper template={template}>
       {allTags.map((item, index) => {
         const [text, value] = item;
+        const slug = slugify(text, { lower: true });
+
         return (
           <Paragraph key={index}>
-            <span>{text}</span> <span> ({value})</span>
+            <Link to={`/tags/${slug}`}>
+              <span>{text}</span> <span> ({value})</span>
+            </Link>
           </Paragraph>
         );
       })}
