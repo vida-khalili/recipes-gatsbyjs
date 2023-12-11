@@ -10,6 +10,7 @@ import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BsClockHistory, BsClockFill, BsPeopleFill } from "react-icons/bs";
 import slugify from "slugify";
+import Seo from "../../components/SEO/SEO";
 
 const RecipeTemplate = ({ data }) => {
   console.log(data);
@@ -181,3 +182,8 @@ export const query = graphql`
 `;
 
 export default RecipeTemplate;
+
+export const Head = ({ pageContext }) => {
+  const { title } = pageContext;
+  return <Seo pageTitle={title} />;
+};

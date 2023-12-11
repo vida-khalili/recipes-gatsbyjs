@@ -5,6 +5,7 @@ import RecipesList from "../components/RecipesContent/RecipesList/RecipesList";
 import H1 from "../components/Typography/H1";
 import PageContentWrapper from "../components/PageContentWrapper/PageContentWrapper";
 import PageContentSection from "../components/PageContentWrapper/PageContentSection";
+import Seo from "../components/SEO/SEO";
 const TagTemplate = ({ data, pageContext }) => {
   const recipes = data.allContentfulRecipe.nodes;
   const { tag } = pageContext;
@@ -44,3 +45,8 @@ export const query = graphql`
   }
 `;
 export default TagTemplate;
+
+export const Head = ({ pageContext }) => {
+  const { tag } = pageContext;
+  return <Seo pageTitle={tag} />;
+};

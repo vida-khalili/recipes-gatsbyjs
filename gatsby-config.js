@@ -14,14 +14,8 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: "Healthy Food",
-    description: "Healthy recipes site",
+    description: "Healthy food recipes by Vida Khalili",
     author: "Vida Khalili",
-    person: { name: "vida", age: "31" },
-    simpleData: ["item 1", "item2"],
-    complexData: [
-      { name: "vida", age: "31" },
-      { name: "mohammad", age: "42" },
-    ],
   },
   plugins: [
     `gatsby-plugin-styled-components`,

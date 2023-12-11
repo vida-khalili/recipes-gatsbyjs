@@ -5,6 +5,7 @@ import PageContentWrapper from "../../../components/PageContentWrapper/PageConte
 import PageContentSection from "../../../components/PageContentWrapper/PageContentSection";
 import H1 from "../../../components/Typography/H1";
 import { StaticImage } from "gatsby-plugin-image";
+import Seo from "../../../components/SEO/SEO";
 const Tags = () => {
   return (
     <Layout>
@@ -26,3 +27,5 @@ const Tags = () => {
 };
 
 export default Tags;
+
+export const Head = () => <Seo pageTitle={"Tags"} />;
